@@ -1,16 +1,51 @@
 div
-    display: flex
     width: 300px
-    justify-content: space-between
+    margin-bottom: 37px
 input
     border: 0
     width: 300px
-    border-bottom: 2px solid #adadad
     &:focus
-        transition: all 0.4s
-        border-bottom: 2px solid #6a7dfe
+        outline: none
+    &:focus + .general-form__border
+        transition-property: background
+        transition-duration: 3s
+        display: block
+        background: -webkit-linear-gradient(left, #21d4fd, #b721ff)
+        height: 2px
+        width: 300px
+.general-form__border
+    display: block
+    background: #f1f1f1
+    height: 2px
+    width: 300px
 button
+    margin-top: 13px
     margin-bottom: 115px
+    width: 100%
+    border-radius: 25px
+    height: 50px
+    background: -webkit-linear-gradient(left, #21d4fd, #b721ff) 
+    transform: scale(1)
+    &:hover
+        background: -webkit-linear-gradient(right, #21d4fd, #b721ff)
+    &:before
+        content: ""
+        position: absolute
+        top: 0
+        border-radius: 25px
+        right: 0
+        width: 100%
+        height: 100%
+        background: linear-gradient(50.71deg, rgba(21, 239, 220, 0.4) 40.22%, rgba(255, 255, 255, 0) 45.31%)
+        -webkit-transition: all 0.3s ease
+        transition: all 0.3s ease
+    &:hover::before
+        opacity: 0
+        cursor: pointer
+form
+    display: flex
+    flex-direction: column
+    align-items: center
 .general-form-textwrapper
     display: flex
     justify-content: space-around
