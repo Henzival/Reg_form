@@ -1,23 +1,22 @@
 <form [formGroup]="generalForm" novalidate>
     <div>
-        <label>Username</label>
-        <input type="text" formControlName="username">
+        <input type="text" formControlName="username" placeholder="Username">
     </div>
     <div>
-        <label>Email</label>
-        <input type="email" formControlName="email">
+        <input type="email" formControlName="email" placeholder="Email">
     </div>
     <div formArrayName="phoneNumber" *ngFor="let number of formData.controls; let i = index;">
-        <label>Phone Number</label>
-        <input type="text" [formControlName]="i">
+        <input type="text" [formControlName]="i" placeholder="Phone Number">
     </div>
     <div>
-        <label>Password</label>
-        <input type="text" formControlName="password">
+        <input type="text" formControlName="password" placeholder="Password">
     </div>
     <div>
-        <label>Repeat Password</label>
-        <input type="text" formControlName="repeatPassword">
+        <input type="text" formControlName="repeatPassword" placeholder="Repeat Password">
     </div>
-    <button></button>
+    <button>Submit</button>
 </form>
+<div class="general-form-textwrapper">
+    <span>Don't have an account? </span>
+    <a href="#"> Sign Up!</a>
+</div>
