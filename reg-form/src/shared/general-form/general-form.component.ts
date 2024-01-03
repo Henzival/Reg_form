@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { FormArray, FormControl, FormGroup, ReactiveFormsModule, FormsModule } from "@angular/forms";
+import { FormArray, FormControl, FormGroup, ReactiveFormsModule, FormsModule, Validators } from "@angular/forms";
 
 @Component({
     selector: 'general-form',
@@ -16,13 +16,22 @@ export class GeneralFormComponent {
 
     private _createForm() {
         this.generalForm = new FormGroup({
-            username: new FormControl(null),
-            email: new FormControl(null),
-            phoneNumber: new FormArray([
-                new FormControl(''),
+            username: new FormControl('', [
+                Validators.required
             ]),
-            password: new FormControl(null),
-            repeatPassword: new FormControl(null),
+            email: new FormControl('', [
+                Validators.required,
+                Validators.email
+            ]),
+            phoneNumber: new FormArray([
+                new FormControl('', [
+                    Validators.required
+                ]),
+            ]),
+            password: new FormControl('', [
+                Validators.minLength(5)
+            ]),
+            repeatPassword: new FormControl(''),
             languages: new FormArray([
                 new FormControl(''),
             ]),
@@ -30,7 +39,13 @@ export class GeneralFormComponent {
     }
 
     public addPhoneNumber() {
-        this.formData.push(new FormControl(''));
+        this.formData.push(new FormControl('', [
+            Validators.required
+        ]));
+    }
+
+    get email() {
+        return this.generalForm.get('email');
     }
     
     public deletePhoneNumber() {

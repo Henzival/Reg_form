@@ -1,4 +1,4 @@
-<form [formGroup]="generalForm" novalidate>
+<form [formGroup]="generalForm">
     <div class="general-form__input-block">
         <input type="text" formControlName="username" placeholder="Username" id="username">
         <span class="general-form__border"></span>
@@ -6,6 +6,8 @@
     <div class="general-form__input-block">
         <input type="email" formControlName="email" placeholder="Email" id="email">
         <span class="general-form__border"></span>
+        <p *ngIf="generalForm.controls['email'].errors?.['required'] ">Email is required.</p>
+        <p *ngIf="generalForm.controls['email'].errors?.['email']">Invalid input.</p>
     </div>
     <div class="general-form__input-block" formArrayName="phoneNumber" *ngFor="let number of formData.controls; let i = index;">
         <input type="tel" [formControlName]="i" placeholder="Phone Number" class="phone-input">
