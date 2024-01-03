@@ -1,17 +1,19 @@
 <form [formGroup]="generalForm">
     <div class="general-form__input-block">
         <input type="text" formControlName="username" placeholder="Username" id="username">
+        <p *ngIf="generalForm.controls['username'].errors?.['required'] ">Username is required.</p>
         <span class="general-form__border"></span>
     </div>
     <div class="general-form__input-block">
         <input type="email" formControlName="email" placeholder="Email" id="email">
         <span class="general-form__border"></span>
-        <p *ngIf="generalForm.controls['email'].errors?.['required'] ">Email is required.</p>
+        <p *ngIf="generalForm.controls['email'].errors?.['required']">Email is required.</p>
         <p *ngIf="generalForm.controls['email'].errors?.['email']">Invalid input.</p>
     </div>
     <div class="general-form__input-block" formArrayName="phoneNumber" *ngFor="let number of formData.controls; let i = index;">
         <input type="tel" [formControlName]="i" placeholder="Phone Number" class="phone-input">
         <span class="general-form__border"></span>
+        <p *ngIf="formData.controls[i].errors?.['required']">Phone Number is required.</p>
     </div>
     <div class="general-form__phone-buttons-wrapper">
         <button (click)="addPhoneNumber()" class="general-form__phone-buttons">Add Phone Number</button>
@@ -20,6 +22,7 @@
     <div class="general-form__input-block">
         <input type="password" formControlName="password" placeholder="Password" id="password">
         <span class="general-form__border"></span>
+        <p *ngIf="generalForm.controls['password'].errors?.['required']">Password should contain more than 4 characters.</p>
     </div>
     <div class="general-form__input-block">
         <input type="password" formControlName="repeatPassword" placeholder="Repeat Password" id="repeatPassword">

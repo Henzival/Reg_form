@@ -29,6 +29,7 @@ export class GeneralFormComponent {
                 ]),
             ]),
             password: new FormControl('', [
+                Validators.required,
                 Validators.minLength(5)
             ]),
             repeatPassword: new FormControl(''),
