@@ -1,25 +1,29 @@
 <form [formGroup]="generalForm" novalidate>
-    <div>
-        <input type="text" formControlName="username" placeholder="Username">
+    <div class="general-form__input-block">
+        <input type="text" formControlName="username" placeholder="Username" id="username">
         <span class="general-form__border"></span>
     </div>
-    <div>
-        <input type="email" formControlName="email" placeholder="Email">
+    <div class="general-form__input-block">
+        <input type="email" formControlName="email" placeholder="Email" id="email">
         <span class="general-form__border"></span>
     </div>
-    <div formArrayName="phoneNumber" *ngFor="let number of formData.controls; let i = index;">
-        <input type="text" [formControlName]="i" placeholder="Phone Number">
+    <div class="general-form__input-block" formArrayName="phoneNumber" *ngFor="let number of formData.controls; let i = index;">
+        <input type="tel" [formControlName]="i" placeholder="Phone Number" class="phone-input">
         <span class="general-form__border"></span>
     </div>
-    <div>
-        <input type="text" formControlName="password" placeholder="Password">
+    <div class="general-form__phone-buttons-wrapper">
+        <button (click)="addPhoneNumber()" class="general-form__phone-buttons">Add Phone Number</button>
+        <button (click)="deletePhoneNumber()" class="general-form__phone-buttons">Delete Phone Number</button>
+    </div>
+    <div class="general-form__input-block">
+        <input type="password" formControlName="password" placeholder="Password" id="password">
         <span class="general-form__border"></span>
     </div>
-    <div>
-        <input type="text" formControlName="repeatPassword" placeholder="Repeat Password">
+    <div class="general-form__input-block">
+        <input type="password" formControlName="repeatPassword" placeholder="Repeat Password" id="repeatPassword">
         <span class="general-form__border"></span>
     </div>
-    <button>Submit</button>
+    <button class="general-form__submit">Submit</button>
 </form>
 <div class="general-form-textwrapper">
     <span>Don't have an account? </span>
