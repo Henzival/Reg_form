@@ -13,7 +13,7 @@ export class GeneralFormComponent {
     constructor() {
         this._createForm();
     }
-    
+
     private _createForm() {
         this.generalForm = new FormGroup({
             username: new FormControl(null),
@@ -23,6 +23,9 @@ export class GeneralFormComponent {
             ]),
             password: new FormControl(null),
             repeatPassword: new FormControl(null),
+            languages: new FormArray([
+                new FormControl(''),
+            ]),
         })
     }
 
@@ -37,4 +40,5 @@ export class GeneralFormComponent {
     }
 
     get formData() { return <FormArray>this.generalForm.get('phoneNumber'); }
+    get formDataLang() { return <FormArray>this.generalForm.get('languages'); }
 }
