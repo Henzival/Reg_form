@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GeneralFormComponent } from './general-form.component';
+import { ParsingServiceService } from '../parsing-service/parsing-service.service';
 
 
 @NgModule({
@@ -10,5 +11,6 @@ import { GeneralFormComponent } from './general-form.component';
     CommonModule, FormsModule, ReactiveFormsModule
   ],
   exports: [GeneralFormComponent],
+  providers: [ParsingServiceService]
 })
 export class GeneralFormModule { }

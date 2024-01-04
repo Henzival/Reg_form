@@ -29,7 +29,8 @@
         <span class="general-form__border"></span>
     </div>
     <select class="general-form__input-block" formArrayName="languages">
-        <option value='{"name": "Matt", "age": "21"}'>
+        <option *ngFor="let data of this.finalize" value=''>
+            {{data.name}}
         </option>
     </select>
     <button class="general-form__submit">Submit</button>

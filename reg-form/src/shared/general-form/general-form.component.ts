@@ -1,5 +1,7 @@
 import { Component } from "@angular/core";
 import { FormArray, FormControl, FormGroup, ReactiveFormsModule, FormsModule, Validators } from "@angular/forms";
+import { ParsingServiceService } from "../parsing-service/parsing-service.service";
+import { GetjsonPipe } from "../tranformjsondata/tranformjsondata.pipe";
 
 @Component({
     selector: 'general-form',
@@ -9,11 +11,21 @@ import { FormArray, FormControl, FormGroup, ReactiveFormsModule, FormsModule, Va
 
 export class GeneralFormComponent {
     generalForm!: FormGroup;
-
-    constructor() {
+    finalize: any;
+    constructor(private service: ParsingServiceService) {
         this._createForm();
+        this.getData();
     }
-
+    private getData() {
+        this.service.dataSetter().then((res) => {
+            this.changeData(res);
+        });
+    }
+    private async changeData(data: any) {
+        console.log(data.languages[0].name);
+        this.finalize = data.languages;
+        console.log(this.finalize);
+    }
     private _createForm() {
         this.generalForm = new FormGroup({
             username: new FormControl('', [
