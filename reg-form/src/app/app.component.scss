@@ -1,0 +1,52 @@
+@font-face {
+    font-family: 'Poppins Bold';
+    src: url('../assets/fonts/Poppins-Bold.eot');
+    src: url('../assets/fonts/Poppins-Bold.eot?#iefix') format('embedded-opentype');
+    src: url('../assets/fonts/Poppins-Bold.woff') format('woff');
+    src: url('../assets/fonts/Poppins-Bold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+    font-display: auto;
+}
+
+@mixin title {
+    font-family: 'Poppins Bold', sans-serif;
+    font-weight: 700;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 77px 55px 33px 55px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    &__title {
+        margin-bottom: 0;
+        margin-top: 0;
+        @include title();
+    }
+    &__image {
+        height: 100px;
+        width: 100px
+    }
+}
+
+main {
+    background-color: #f1f1f1;
+    width: 100%;
+    margin: 0 auto;
+}
+
+img {
+    margin-top: 30px;
+    margin-bottom: 80px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    align-items: center;
+}

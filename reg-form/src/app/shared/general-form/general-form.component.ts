@@ -13,7 +13,7 @@ import { Observable, map, toArray } from 'rxjs';
 @Component({
   selector: 'general-form',
   templateUrl: './general-form.html',
-  styleUrl: './general-form.component.sass',
+  styleUrl: './general-form.component.scss',
 })
 export class GeneralFormComponent {
   generalForm!: FormGroup;
