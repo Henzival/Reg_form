@@ -1,5 +1,11 @@
 import { Component } from '@angular/core';
-import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormArray,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { GetLanguagesService } from '../services/get-languages.service';
 
 @Component({
@@ -10,24 +16,24 @@ import { GetLanguagesService } from '../services/get-languages.service';
 export class GeneralFormComponent {
   generalForm!: FormGroup;
 
-  languagesArray!: any;
+  languagesArray!: Array<{ language: string }>;
 
   constructor(private languagesService: GetLanguagesService) {
     this.createForm();
     this.getData();
   }
 
-  private getData() {
+  private getData(): void {
     this.languagesService
       .dataGetter()
       .subscribe((res) => this.getLanguagesArray(res));
   }
 
-  private getLanguagesArray(languagesObject: { languages: any }) {
+  private getLanguagesArray(languagesObject: { languages: any }): void {
     this.languagesArray = languagesObject.languages;
   }
 
-  private createForm() {
+  private createForm(): void {
     this.generalForm = new FormGroup({
       username: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -41,25 +47,25 @@ export class GeneralFormComponent {
     });
   }
 
-  public addPhoneNumber() {
+  public addPhoneNumber(): void {
     this.formData.push(new FormControl('', [Validators.required]));
   }
 
-  get email() {
+  get email(): AbstractControl<any, any> | null {
     return this.generalForm.get('email');
   }
 
-  public deletePhoneNumber() {
+  public deletePhoneNumber(): void {
     if (this.formData.length !== 1) {
       this.formData.removeAt(this.formData.length - 1);
     }
   }
 
-  get formData() {
+  get formData(): FormArray {
     return <FormArray>this.generalForm.get('phoneNumber');
   }
 
-  get formDataLang() {
+  get formDataLang(): FormArray {
     return <FormArray>this.generalForm.get('languages');
   }
 }
