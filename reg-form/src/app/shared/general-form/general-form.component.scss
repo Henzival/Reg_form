@@ -3,9 +3,26 @@ div {
     margin-bottom: 37px;
 }
 
+@font-face {
+    font-family: 'Poppins Regular';
+    src: url('../../../assets/fonts/Poppins-Regular.eot');
+    src: url('../../../assets/fonts/Poppins-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../../../assets/fonts/Poppins-Regular.woff') format('woff'),
+        url('../../../assets/fonts/Poppins-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+    font-display: auto;
+}
+
+@mixin reg {
+    font-family: 'Poppins Regular', sans-serif;
+    font-weight: 300;
+}
+
 input {
     border: 0;
     width: 300px;
+    @include reg;
     &:focus { 
         outline: none;
     }
@@ -26,8 +43,10 @@ input {
 
 .general-form__submit {
     margin-top: 43px;
+    @include reg();
+    color: #fff;
     margin-bottom: 115px;
-    width: 100%;
+    width: 300px;
     border-radius: 25px;
     height: 50px;
     transform: scale(1);
@@ -67,6 +86,8 @@ form {
     display: flex;
     justify-content: space-around;
     padding: 0 40px;
+    width: 350px;
+    @include reg;
 }
 
 .general-form__phone-buttons-wrapper {
@@ -81,11 +102,12 @@ form {
         border-radius: 5px;
         transition: 0.3s;
         cursor: pointer;
-    }
         &:hover {
             background-color: #b721ff;
         }
+    }
 }
 p {
+    @include reg;
     margin-bottom: 0
 }
