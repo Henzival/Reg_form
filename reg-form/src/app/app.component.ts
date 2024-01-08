@@ -9,7 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
   standalone: true,
   imports: [CommonModule, RouterOutlet, GeneralFormModule, HttpClientModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.sass'
+  styleUrl: './app.component.sass',
 })
 export class AppComponent {
   title = 'reg-form';

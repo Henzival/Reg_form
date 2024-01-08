@@ -1,13 +1,10 @@
 {
     "languages": [
         {
-            "name": "Russian"
+            "language": "Russian"
         },
         {
-            "name": "English"
-        },
-        {
-            "name": "German"
+            "language": "English"
         }
     ]
 }
