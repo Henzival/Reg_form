@@ -1,14 +1,6 @@
 import { Component } from '@angular/core';
-import {
-  FormArray,
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-  FormsModule,
-  Validators,
-} from '@angular/forms';
-import { ParsingServiceService } from '../services/parsing-service.service';
-import { Observable, map, toArray } from 'rxjs';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { GetLanguagesService } from '../services/get-languages.service';
 
 @Component({
   selector: 'general-form',
@@ -18,20 +10,21 @@ import { Observable, map, toArray } from 'rxjs';
 export class GeneralFormComponent {
   generalForm!: FormGroup;
 
-  languagesArray: any;
+  languagesArray!: any;
 
-  constructor(private service: ParsingServiceService) {
+  constructor(private languagesService: GetLanguagesService) {
     this.createForm();
     this.getData();
   }
 
   private getData() {
-    this.service.dataGetter().subscribe((res) => this.changeData(res));
+    this.languagesService
+      .dataGetter()
+      .subscribe((res) => this.getLanguagesArray(res));
   }
 
-  private changeData(data: any) {
-    this.languagesArray = data.languages;
-    console.log(this.languagesArray);
+  private getLanguagesArray(languagesObject: { languages: any }) {
+    this.languagesArray = languagesObject.languages;
   }
 
   private createForm() {

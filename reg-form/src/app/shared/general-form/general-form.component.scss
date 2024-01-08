@@ -1,47 +1,51 @@
-div {
-    width: 300px;
-    margin-bottom: 37px;
-}
-
 @font-face {
-    font-family: 'Poppins Regular';
-    src: url('../../../assets/fonts/Poppins-Regular.eot');
-    src: url('../../../assets/fonts/Poppins-Regular.eot?#iefix') format('embedded-opentype'),
-        url('../../../assets/fonts/Poppins-Regular.woff') format('woff'),
-        url('../../../assets/fonts/Poppins-Regular.ttf') format('truetype');
-    font-style: normal;
-    font-weight: normal;
-    font-display: auto;
+  font-family: "Poppins Regular";
+  src: url("../../../assets/fonts/Poppins-Regular.eot");
+  src: url("../../../assets/fonts/Poppins-Regular.eot?#iefix")
+      format("embedded-opentype"),
+    url("../../../assets/fonts/Poppins-Regular.woff") format("woff"),
+    url("../../../assets/fonts/Poppins-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+  font-display: auto;
 }
 
 @mixin reg {
-    font-family: 'Poppins Regular', sans-serif;
-    font-weight: 300;
+  font-family: "Poppins Regular", sans-serif;
+  font-weight: 300;
 }
 
-input {
-    border: 0;
+.general-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__input-block {
     width: 300px;
-    @include reg;
-    &:focus { 
+    margin-bottom: 37px;
+    &__input {
+      border: 0;
+      width: 300px;
+      @include reg;
+      &:focus {
         outline: none;
-    }
-    &:focus + .general-form__border {
+      }
+      &:focus + .general-form__border {
         display: block;
         background: -webkit-linear-gradient(left, #21d4fd, #b721ff);
         height: 2px;
         width: 300px;
+      }
     }
-}
+  }
 
-.general-form__border {
+  &__border {
     display: block;
     background: #f1f1f1;
     height: 2px;
     width: 300px;
-}
+  }
 
-.general-form__submit {
+  &__submit {
     margin-top: 43px;
     @include reg();
     color: #fff;
@@ -51,63 +55,62 @@ input {
     height: 50px;
     transform: scale(1);
     background-color: #21d4fd;
+
     &:hover {
-        background: -webkit-linear-gradient(right, #21d4fd, #b721ff);
+      background: -webkit-linear-gradient(right, #21d4fd, #b721ff);
     }
+
     &:before {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        content: "Submit";
-        position: absolute;
-        top: 0;
-        border-radius: 25px;
-        right: 0;
-        width: 100%;
-        height: 100%;
-        background: -webkit-linear-gradient(left, #21d4fd, #b721ff);
-        opacity: 1;
-        -webkit-transition: all 0.3s ease;
-        transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      content: "Submit";
+      position: absolute;
+      top: 0;
+      border-radius: 25px;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background: -webkit-linear-gradient(left, #21d4fd, #b721ff);
+      opacity: 1;
+      -webkit-transition: all 0.3s ease;
+      transition: all 0.3s ease;
     }
+
     &:hover::before {
-        opacity: 0;
-        cursor: pointer;
+      opacity: 0;
+      cursor: pointer;
     }
-}
+  }
 
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.general-form-textwrapper {
+  &-textwrapper {
     display: flex;
     justify-content: space-around;
     padding: 0 40px;
     width: 350px;
     @include reg;
-}
+  }
 
-.general-form__phone-buttons-wrapper {
+  &__phone-buttons-wrapper {
     display: flex;
     justify-content: space-between;
+    width: 300px;
     margin-top: -33px;
-}
+    margin-bottom: 37px;
+  }
 
-.general-form {
-    &__phone-buttons {
-        background-color: #21d4fd;
-        border-radius: 5px;
-        transition: 0.3s;
-        cursor: pointer;
-        &:hover {
-            background-color: #b721ff;
-        }
+  &__phone-buttons {
+    background-color: #21d4fd;
+    border-radius: 5px;
+    transition: 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #b721ff;
     }
-}
-p {
+  }
+  &__validation {
     @include reg;
-    margin-bottom: 0
+    margin-bottom: 0;
+  }
 }

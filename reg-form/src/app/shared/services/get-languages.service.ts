@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, map, toArray } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 @Injectable()
-export class ParsingServiceService {
+export class GetLanguagesService {
   constructor(private http: HttpClient) {}
   public dataGetter(): Observable<any> {
     return this.http
