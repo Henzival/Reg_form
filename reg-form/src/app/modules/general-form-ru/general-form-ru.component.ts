@@ -38,7 +38,7 @@ export class GeneralFormRuComponent {
   }
 
   public addPhoneNumber(): void {
-    this.formData.push(new FormControl('', [Validators.required]));
+    this.formPhoneNumber.push(new FormControl('', [Validators.required]));
   }
 
   get email(): AbstractControl<any, any> | null {
@@ -46,12 +46,12 @@ export class GeneralFormRuComponent {
   }
 
   public deletePhoneNumber(): void {
-    if (this.formData.length !== 1) {
-      this.formData.removeAt(this.formData.length - 1);
+    if (this.formPhoneNumber.length !== 1) {
+      this.formPhoneNumber.removeAt(this.formPhoneNumber.length - 1);
     }
   }
 
-  get formData(): FormArray {
+  get formPhoneNumber(): FormArray {
     return <FormArray>this.generalForm.get('phoneNumber');
   }
 

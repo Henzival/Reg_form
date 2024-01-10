@@ -49,7 +49,7 @@
         <div
           class="general-form__input-block"
           formArrayName="phoneNumber"
-          *ngFor="let number of formData.controls; let i = index;"
+          *ngFor="let number of formPhoneNumber.controls; let i = index;"
         >
           <input
             type="tel"
@@ -60,7 +60,7 @@
           />
           <span class="general-form__border"></span>
           <p
-            *ngIf="formData.controls[i].errors?.['required'] && (formData.controls[i].touched || submitted)"
+            *ngIf="formPhoneNumber.controls[i].errors?.['required'] && (formPhoneNumber.controls[i].touched || submitted)"
             class="general-form__validation"
           >
             Номер телефона обязателен.
