@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { GeneralFormRuComponent } from './general-form-ru.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { GeneralFormComponent } from './general-form.component';
-import { GetLanguagesService } from '../services/get-languages.service';
+import { GetLanguagesService } from '../../shared/services/get-languages.service';
 
 @NgModule({
-  declarations: [GeneralFormComponent],
+  declarations: [GeneralFormRuComponent],
   imports: [CommonModule, FormsModule, ReactiveFormsModule],
-  exports: [GeneralFormComponent],
+  exports: [GeneralFormRuComponent],
   providers: [GetLanguagesService],
 })
-export class GeneralFormModule {}
+export class GeneralFormRuModule {}
