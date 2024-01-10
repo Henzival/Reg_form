@@ -37,10 +37,10 @@ export class AppComponent {
     private languagesService: GetLanguagesService,
     private router: Router
   ) {
-    this.getData();
+    this.observableSubscribe();
   }
 
-  private getData(): void {
+  private observableSubscribe(): void {
     this.langServiceSubscription = this.languagesService
       .dataGetter()
       .subscribe((res) => this.getLanguagesArray(res));
