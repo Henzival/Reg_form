@@ -31,6 +31,8 @@
   &__image {
     height: 100px;
     width: 100px;
+    margin-top: 30px;
+    margin-bottom: 80px;
   }
   &__button {
     margin-top: 43px;
@@ -71,15 +73,10 @@
   }
 }
 
-main {
+.main-area {
   background-color: #f1f1f1;
   width: 100%;
   margin: 0 auto;
-}
-
-img {
-  margin-top: 30px;
-  margin-bottom: 80px;
 }
 
 .container {
