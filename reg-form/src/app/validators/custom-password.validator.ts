@@ -1,9 +1,21 @@
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 
-export const confirmPasswordValidator: ValidatorFn = (
-  control: AbstractControl
-): ValidationErrors | null => {
-  return control.value.password === control.value.repeatPassword
-    ? null
-    : { PasswordNoMatch: true };
-};
+export class CustomValidators {
+  static match(controlName: string, matchControlName: string): ValidatorFn {
+    return (controls: AbstractControl) => {
+      const control = controls.get(controlName);
+      const matchControl = controls.get(matchControlName);
+
+      if (!matchControl?.errors && control?.value !== matchControl?.value) {
+        matchControl?.setErrors({
+          matching: {
+            actualValue: matchControl?.value,
+            requiredValue: control?.value,
+          },
+        });
+        return { matching: true };
+      }
+      return null;
+    };
+  }
+}

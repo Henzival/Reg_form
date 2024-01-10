@@ -9,11 +9,11 @@ import {
 } from '@angular/forms';
 import { CustomValidators } from '../../validators/custom-password.validator';
 @Component({
-  selector: 'general-form-ru',
-  templateUrl: './general-form-ru.html',
-  styleUrl: './general-form-ru.component.scss',
+  selector: 'general-form-eng',
+  templateUrl: './general-form-eng.html',
+  styleUrl: './general-form-eng.component.scss',
 })
-export class GeneralFormRuComponent {
+export class GeneralFormEngComponent {
   generalForm!: FormGroup;
   submitted: boolean = false;
 
@@ -32,13 +32,12 @@ export class GeneralFormRuComponent {
       password: ['', [Validators.required, Validators.minLength(5)]],
 
       repeatPassword: [''],
-
       validators: [CustomValidators.match('password', 'repeatPassword')],
     });
   }
 
   public addPhoneNumber(): void {
-    this.formData.push(new FormControl('', [Validators.required]));
+    this.formPhoneNumber.push(new FormControl('', [Validators.required]));
   }
 
   get email(): AbstractControl<any, any> | null {
@@ -46,12 +45,12 @@ export class GeneralFormRuComponent {
   }
 
   public deletePhoneNumber(): void {
-    if (this.formData.length !== 1) {
-      this.formData.removeAt(this.formData.length - 1);
+    if (this.formPhoneNumber.length !== 1) {
+      this.formPhoneNumber.removeAt(this.formPhoneNumber.length - 1);
     }
   }
 
-  get formData(): FormArray {
+  get formPhoneNumber(): FormArray {
     return <FormArray>this.generalForm.get('phoneNumber');
   }
 

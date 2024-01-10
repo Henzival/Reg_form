@@ -1,8 +1,17 @@
 <div class="select-wrapper">
-  <span class="select-text"></span>
-  <select class="general-form__input-block" formArrayName="languages">
-    <option *ngFor="let data of this.languagesArray" value="">
-      {{ data.language }}
+  <select
+    class="general-form__input-block"
+    formArrayName="languages"
+    (change)="selectChangeHandler($event)"
+  >
+    <option
+      *ngFor="let itemLanguage of this.languagesArray; let i = index"
+      value="{{ itemLanguage.language }}"
+      (ngModelChange)="selectChangeHandler(i)"
+    >
+      <a [routerLink]="['/', 'registration-eng']">
+        {{ itemLanguage.language }}
+      </a>
     </option>
   </select>
 </div>
