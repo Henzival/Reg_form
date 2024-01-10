@@ -1,11 +1,11 @@
-.general-form__input-block {
+.select {
   display: block;
   position: absolute;
   width: 150px;
   right: 0;
 }
 @media (max-width: 567px) {
-  .general-form__input-block {
+  .select {
     display: block;
     position: absolute;
     width: 100px;
