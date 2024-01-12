@@ -1,3 +1,4 @@
+@defer {
 <main class="main-area">
   <div class="container">
     <div class="card">
@@ -13,11 +14,10 @@
             placeholder="Имя пользователя"
             id="username"
             class="general-form__input-block__input"
-            [ngClass]="{ 'is-invalid': submitted }"
           />
           <span class="general-form__border"></span>
           <p
-            *ngIf="generalForm.controls['username'].errors?.['required'] && (generalForm.controls['username'].touched || submitted)"
+            *ngIf="generalForm.controls['username'].errors?.['required'] && (generalForm.controls['username'].touched)"
             class="general-form__validation"
           >
             Имя пользователя обязательно.
@@ -31,17 +31,16 @@
             placeholder="Электронная почта"
             id="email"
             class="general-form__input-block__input"
-            [ngClass]="{ 'is-invalid': submitted }"
           />
           <span class="general-form__border"></span>
           <p
-            *ngIf="generalForm.controls['email'].errors?.['required'] && (generalForm.controls['email'].touched || submitted)"
+            *ngIf="generalForm.controls['email'].errors?.['required'] && (generalForm.controls['email'].touched)"
             class="general-form__validation"
           >
             Электронная почта обязательна.
           </p>
           <p
-            *ngIf="generalForm.controls['email'].errors?.['email'] && (generalForm.controls['email'].touched || submitted)"
+            *ngIf="generalForm.controls['email'].errors?.['email'] && (generalForm.controls['email'].touched)"
             class="general-form__validation"
           >
             Неверный адрес электронной почты.
@@ -58,11 +57,10 @@
             [formControlName]="i"
             placeholder="Номер телефона"
             class="general-form__input-block__input"
-            [ngClass]="{ 'is-invalid': submitted }"
           />
           <span class="general-form__border"></span>
           <p
-            *ngIf="formPhoneNumber.controls[i].errors?.['required'] && (formPhoneNumber.controls[i].touched || submitted)"
+            *ngIf="formPhoneNumber.controls[i].errors?.['required'] && (formPhoneNumber.controls[i].touched)"
             class="general-form__validation"
           >
             Номер телефона обязателен.
@@ -91,17 +89,16 @@
             placeholder="Пароль"
             id="password"
             class="general-form__input-block__input"
-            [ngClass]="{ 'is-invalid': submitted }"
           />
           <span class="general-form__border"></span>
           <p
-            *ngIf="generalForm.controls['password'].errors?.['required'] && (generalForm.controls['password'].touched || submitted)"
+            *ngIf="generalForm.controls['password'].errors?.['required'] && (generalForm.controls['password'].touched)"
             class="general-form__validation"
           >
             Пароль обязателен.
           </p>
           <p
-            *ngIf="generalForm.controls['password'].errors?.['minlength'] && (generalForm.controls['password'].touched || submitted)"
+            *ngIf="generalForm.controls['password'].errors?.['minlength'] && (generalForm.controls['password'].touched)"
             class="general-form__validation"
           >
             Длина пароля должна составлять как минимум 5 символов.
@@ -115,11 +112,10 @@
             placeholder="Подтвердить пароль"
             id="repeatPassword"
             class="general-form__input-block__input"
-            [ngClass]="{ 'is-invalid': submitted }"
           />
           <span class="general-form__border"></span>
           <p
-            *ngIf="generalForm.controls['repeatPassword'].errors && (generalForm.controls['repeatPassword'].touched || submitted)"
+            *ngIf="generalForm.controls['repeatPassword'].errors && (generalForm.controls['repeatPassword'].touched)"
             class="general-form__validation"
           >
             Пароли должны совпадать.
@@ -138,3 +134,4 @@
     </div>
   </div>
 </main>
+}

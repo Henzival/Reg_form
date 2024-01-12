@@ -9,9 +9,7 @@
       value="{{ itemLanguage.language }}"
       (ngModelChange)="selectChangeHandler(i)"
     >
-      <a [routerLink]="['/', 'registration-eng']">
-        {{ itemLanguage.language }}
-      </a>
+      {{ itemLanguage.language }}
     </option>
   </select>
 </div>
