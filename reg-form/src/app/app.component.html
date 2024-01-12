@@ -5,9 +5,9 @@
     (change)="selectChangeHandler($event)"
   >
     <option
-      *ngFor="let definition of this.langServiceObs$ | async; let i = index"
+      *ngFor="let language of this.langServiceObs$ | async; let i = index"
     >
-      {{ definition.language }}
+      {{ language.language }}
     </option>
   </select>
 </div>
