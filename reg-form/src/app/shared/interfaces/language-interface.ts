@@ -1,5 +1,5 @@
-import { LanguageArray } from './languagearray-interface';
+import { Language } from './languagearray-interface';
 
 export interface LanguageDTO {
-  language: { languages: LanguageArray[] };
+  languages: Language[];
 }

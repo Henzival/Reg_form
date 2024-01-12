@@ -1,3 +1,3 @@
-export interface LanguageArray {
-  item: { value: string };
+export interface Language {
+  value: string;
 }

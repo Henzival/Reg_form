@@ -5,9 +5,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { GeneralFormRuModule } from './modules/general-form-ru/general-form-ru.module';
 import { SignUpRuModule } from './modules/sign-up-ru/sign-up-ru.module';
 import { GetLanguagesService } from './shared/services/get-languages.service';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { Language } from './shared/interfaces/languagearray-interface';
 
 @Component({
   selector: 'app-root',
@@ -26,7 +27,7 @@ import { RouterModule } from '@angular/router';
 })
 export class AppComponent {
   title = 'reg-form';
-  langServiceSubscription!: Subscription;
+  langServiceObs$!: Observable<Language[]>;
   languagesArray!: Array<{ language: string }>;
 
   constructor(
@@ -37,14 +38,11 @@ export class AppComponent {
   }
 
   private observableSubscribe(): void {
-    this.langServiceSubscription = this.languagesService
-      .dataGetter()
-      .subscribe((res) => this.getLanguagesArray(res));
+    this.langServiceObs$ = this.languagesService.dataGetter();
   }
 
   private getLanguagesArray(languagesObject: { languages: any }): void {
     this.languagesArray = languagesObject.languages;
-    this.langServiceSubscription.unsubscribe();
   }
 
   public selectChangeHandler(selectClick: any) {
