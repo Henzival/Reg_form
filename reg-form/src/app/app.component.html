@@ -5,10 +5,9 @@
     (change)="selectChangeHandler($event)"
   >
     <option
-      *ngFor="let itemLanguage of langServiceObs$ | async"
-      value="{{ itemLanguage.value }}"
+      *ngFor="let definition of this.langServiceObs$ | async; let i = index"
     >
-      {{ itemLanguage.value }}
+      {{ definition.language }}
     </option>
   </select>
 </div>

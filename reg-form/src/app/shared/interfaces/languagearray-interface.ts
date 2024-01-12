@@ -1,3 +1,3 @@
 export interface Language {
-  value: string;
+  language: string;
 }

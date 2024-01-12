@@ -9,6 +9,7 @@ import { Observable, Subscription } from 'rxjs';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { Language } from './shared/interfaces/languagearray-interface';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -28,7 +29,6 @@ import { Language } from './shared/interfaces/languagearray-interface';
 export class AppComponent {
   title = 'reg-form';
   langServiceObs$!: Observable<Language[]>;
-  languagesArray!: Array<{ language: string }>;
 
   constructor(
     private languagesService: GetLanguagesService,
@@ -39,10 +39,6 @@ export class AppComponent {
 
   private observableSubscribe(): void {
     this.langServiceObs$ = this.languagesService.dataGetter();
-  }
-
-  private getLanguagesArray(languagesObject: { languages: any }): void {
-    this.languagesArray = languagesObject.languages;
   }
 
   public selectChangeHandler(selectClick: any) {
