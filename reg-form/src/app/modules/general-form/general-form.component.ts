@@ -9,7 +9,7 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { passwordMatch } from '../../shared/validators/custom-password.validator';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService, TranslateStore } from '@ngx-translate/core';
 import { phoneNumberValidator } from '../../shared/validators/custom-phone.validator';
 
 @Component({
@@ -73,9 +73,5 @@ export class GeneralFormComponent {
         'SUCCESS!! :-)\n\n' + JSON.stringify(this.generalForm.value, null, 4)
       );
     }
-  }
-
-  public onReset() {
-    this.generalForm.reset();
   }
 }

@@ -43,9 +43,7 @@ export class AppComponent {
     this.translate.setDefaultLang('en');
   }
 
-  public selectChangeHandler(selectClick: any): string {
-    console.log(selectClick.target.value);
+  public selectChangeHandler(selectClick: any): void {
     this.translate.use(selectClick.target.value);
-    return selectClick.target.value;
   }
 }

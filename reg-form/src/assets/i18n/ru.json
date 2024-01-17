@@ -12,6 +12,7 @@
   "EMAILREQUIREDERROR": "Электронная почта обязательна.",
   "INVALIDEMAILERROR": "Неверный адрес электронной почты.",
   "PHONEREQUIREDERROR": "Номер телефона обязателен.",
+  "PHONEINVALIDERROR": "Неверный тип номера телефона.",
   "PASSWORDREQUIREDERROR": "Пароль обязателен.",
   "PASSWORDLENGTHERROR": "Длина пароля должна составлять как минимум 5 символов.",
   "PASSWORDMISMATCHERROR": "Пароли должны совпадать.",

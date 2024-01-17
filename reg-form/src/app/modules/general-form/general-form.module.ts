@@ -22,13 +22,12 @@ const routes: Routes = [{ path: '', component: GeneralFormComponent }];
     ReactiveFormsModule,
     HttpClientModule,
     GeneralFormRoutingModule,
-    TranslateModule.forChild({
+    TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
         deps: [HttpClient],
       },
-      isolate: false,
     }),
   ],
   exports: [GeneralFormComponent, TranslateModule],

@@ -68,7 +68,7 @@
             *ngIf="formPhoneNumber.controls[i].errors?.['invalidPhoneNumber'] && (formPhoneNumber.controls[i].touched)"
             class="general-form__validation"
           >
-            Invalid phone number.
+            {{'PHONEINVALIDERROR' | translate}}
           </p>
         </div>
 

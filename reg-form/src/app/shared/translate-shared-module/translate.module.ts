@@ -26,6 +26,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
         deps: [HttpClient],
       },
       extend: true,
+      isolate: false,
     }),
   ],
   exports: [TranslateModule],

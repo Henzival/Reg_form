@@ -12,6 +12,7 @@
   "EMAILREQUIREDERROR": "Email is required.",
   "INVALIDEMAILERROR": "Invalid email.",
   "PHONEREQUIREDERROR": "Phone number is required.",
+  "PHONEINVALIDERROR": "Invalid phone number.",
   "PASSWORDREQUIREDERROR": "Password is required.",
   "PASSWORDLENGTHERROR": "Password length has to be at least 5 characters long.",
   "PASSWORDMISMATCHERROR": "The passwords must match.",
