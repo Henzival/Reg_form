@@ -40,7 +40,7 @@ export class AppComponent {
     private translate: TranslateService
   ) {
     this.langServiceObs$ = this.languagesService.dataGetter();
-    this.translate.setDefaultLang('ru');
+    this.translate.setDefaultLang('en');
   }
 
   public selectChangeHandler(selectClick: any): string {

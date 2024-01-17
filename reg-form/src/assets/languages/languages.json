@@ -1,12 +1,12 @@
 {
   "languages": [
     {
-      "language": "Русский",
-      "id": "ru"
-    },
-    {
       "language": "English",
       "id": "en"
+    },
+    {
+      "language": "Русский",
+      "id": "ru"
     }
   ]
 }

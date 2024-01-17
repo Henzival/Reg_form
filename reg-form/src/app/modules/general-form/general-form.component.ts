@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   AbstractControl,
   FormArray,
@@ -21,9 +21,7 @@ export class GeneralFormComponent {
   generalForm!: FormGroup;
   constructor(private fb: FormBuilder, private translate: TranslateService) {
     this.createForm();
-    this.translate.use(this.translate.getBrowserLang()!);
   }
-
   private createForm(): void {
     this.generalForm = this.fb.group(
       {

@@ -8,7 +8,7 @@ import { GeneralFormComponent } from './modules/general-form/general-form.compon
 export const routes: Routes = [
   { path: '', component: SignUpComponent },
   {
-    path: 'registration-ru',
+    path: 'registration',
     loadChildren: () =>
       import('./modules/general-form/general-form.module').then(
         (mod) => mod.GeneralFormModule
