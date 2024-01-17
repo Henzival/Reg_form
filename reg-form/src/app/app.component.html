@@ -6,6 +6,7 @@
   >
     <option
       *ngFor="let language of this.langServiceObs$ | async; let i = index"
+      value="{{ language.id }}"
     >
       {{ language.language }}
     </option>

@@ -53,7 +53,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      content: "Зарегистрироваться";
+      content: attr(title);
       position: absolute;
       top: 0;
       border-radius: 25px;

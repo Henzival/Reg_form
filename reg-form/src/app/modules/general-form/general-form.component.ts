@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {
   AbstractControl,
   FormArray,
@@ -6,16 +6,19 @@ import {
   FormGroup,
   Validators,
   FormBuilder,
+  ReactiveFormsModule,
 } from '@angular/forms';
 import { CustomValidators } from '../../shared/validators/custom-password.validator';
+import { TranslateService } from '@ngx-translate/core';
+
 @Component({
-  selector: 'general-form-ru',
-  templateUrl: './general-form-ru.html',
-  styleUrl: './general-form-ru.component.scss',
+  selector: 'general-form',
+  templateUrl: './general-form.html',
+  styleUrl: './general-form.component.scss',
 })
-export class GeneralFormRuComponent {
+export class GeneralFormComponent {
   generalForm!: FormGroup;
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private translate: TranslateService) {
     this.createForm();
   }
 

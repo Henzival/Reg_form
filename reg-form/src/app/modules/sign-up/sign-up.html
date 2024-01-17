@@ -1,10 +1,12 @@
 <main class="main-area">
   <div class="container">
     <div class="card">
-      <h1 class="card__title">Добро пожаловать</h1>
+      <h1 class="card__title">{{ "WELCOME" | translate }}</h1>
       <img src="../assets/img/angular.svg" alt="" class="card__image" />
       <a [routerLink]="['/', 'registration-ru']"
-        ><button class="card__button">Зарегистрироваться</button></a
+        ><button class="card__button" [title]=" 'REGISTER' | translate ">
+          {{ "REGISTER" | translate }}
+        </button></a
       >
     </div>
   </div>

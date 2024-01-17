@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes } from '@angular/router';
-import { GeneralFormRuModule } from './modules/general-form-ru/general-form-ru.module';
-import { SignUpRuComponent } from './modules/sign-up-ru/sign-up-ru.component';
+import { GeneralFormModule } from './modules/general-form/general-form.module';
+import { SignUpComponent } from './modules/sign-up/sign-up.component';
 import { RouterModule } from '@angular/router';
+import { GeneralFormComponent } from './modules/general-form/general-form.component';
 
 export const routes: Routes = [
-  { path: '', component: SignUpRuComponent },
+  { path: '', component: SignUpComponent },
   {
     path: 'registration-ru',
     loadChildren: () =>
-      import('./modules/general-form-ru/general-form-ru.module').then(
-        (m) => m.GeneralFormRuModule
+      import('./modules/general-form/general-form.module').then(
+        (mod) => mod.GeneralFormModule
       ),
   },
 ];
