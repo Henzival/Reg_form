@@ -3,9 +3,8 @@ import { CommonModule } from '@angular/common';
 import { GeneralFormComponent } from './general-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GetLanguagesService } from '../../shared/services/get-languages.service';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService, TranslateStore } from '@ngx-translate/core';
 import { HttpClientModule } from '@angular/common/http';
-import { TranslateSharedModule } from '../../shared/translate-shared-module/translate.module';
 import { Routes } from '@angular/router';
 import { GeneralFormRoutingModule } from './general-form-routing.module';
 import { TranslateModule } from '@ngx-translate/core';
@@ -22,7 +21,6 @@ const routes: Routes = [{ path: '', component: GeneralFormComponent }];
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    TranslateSharedModule,
     GeneralFormRoutingModule,
     TranslateModule.forChild({
       loader: {
@@ -30,9 +28,10 @@ const routes: Routes = [{ path: '', component: GeneralFormComponent }];
         useFactory: HttpLoaderFactory,
         deps: [HttpClient],
       },
+      isolate: false,
     }),
   ],
   exports: [GeneralFormComponent, TranslateModule],
-  providers: [GetLanguagesService, TranslateService],
+  providers: [GetLanguagesService, TranslateService, TranslateStore],
 })
 export class GeneralFormModule {}

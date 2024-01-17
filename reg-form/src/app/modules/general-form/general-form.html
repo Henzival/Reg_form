@@ -64,6 +64,12 @@
           >
             {{'PHONEREQUIREDERROR' | translate}}
           </p>
+          <p
+            *ngIf="formPhoneNumber.controls[i].errors?.['invalidPhoneNumber'] && (formPhoneNumber.controls[i].touched)"
+            class="general-form__validation"
+          >
+            Invalid phone number.
+          </p>
         </div>
 
         <div class="general-form__phone-buttons-wrapper">

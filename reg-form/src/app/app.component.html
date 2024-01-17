@@ -1,15 +1,17 @@
-<div class="select-wrapper">
-  <select
-    class="select"
-    formArrayName="languages"
-    (change)="selectChangeHandler($event)"
-  >
-    <option
-      *ngFor="let language of this.langServiceObs$ | async; let i = index"
-      value="{{ language.id }}"
+<div class="select-wrapper" *ngIf="langServiceObs$ | async as langServiceObs">
+  <ng-container *ngIf="langServiceObs.length > 1">
+    <select
+      class="select"
+      formArrayName="languages"
+      (change)="selectChangeHandler($event)"
     >
-      {{ language.language }}
-    </option>
-  </select>
+      <option
+        *ngFor="let language of langServiceObs$ | async; let i = index"
+        value="{{ language.id }}"
+      >
+        {{ language.language }}
+      </option>
+    </select>
+  </ng-container>
 </div>
 <router-outlet></router-outlet>

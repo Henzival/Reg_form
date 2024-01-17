@@ -34,24 +34,18 @@ import { TranslateSharedModule } from './shared/translate-shared-module/translat
 export class AppComponent {
   title = 'reg-form';
   langServiceObs$!: Observable<Language[]>;
-  language: string = 'ru';
 
   constructor(
     private languagesService: GetLanguagesService,
-    private router: Router,
     private translate: TranslateService
   ) {
-    this.observableSubscribe();
+    this.langServiceObs$ = this.languagesService.dataGetter();
     this.translate.setDefaultLang('ru');
   }
 
-  private observableSubscribe(): void {
-    this.langServiceObs$ = this.languagesService.dataGetter();
-  }
-
-  public selectChangeHandler(selectClick: any) {
+  public selectChangeHandler(selectClick: any): string {
     console.log(selectClick.target.value);
-    this.language = selectClick.target.value;
     this.translate.use(selectClick.target.value);
+    return selectClick.target.value;
   }
 }

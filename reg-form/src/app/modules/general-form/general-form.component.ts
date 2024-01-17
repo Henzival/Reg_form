@@ -8,8 +8,9 @@ import {
   FormBuilder,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { CustomValidators } from '../../shared/validators/custom-password.validator';
+import { passwordMatch } from '../../shared/validators/custom-password.validator';
 import { TranslateService } from '@ngx-translate/core';
+import { phoneNumberValidator } from '../../shared/validators/custom-phone.validator';
 
 @Component({
   selector: 'general-form',
@@ -20,6 +21,7 @@ export class GeneralFormComponent {
   generalForm!: FormGroup;
   constructor(private fb: FormBuilder, private translate: TranslateService) {
     this.createForm();
+    this.translate.use(this.translate.getBrowserLang()!);
   }
 
   private createForm(): void {
@@ -29,18 +31,22 @@ export class GeneralFormComponent {
 
         email: ['', [Validators.required, Validators.email]],
 
-        phoneNumber: this.fb.array([['', [Validators.required]]]),
+        phoneNumber: this.fb.array([
+          ['', [Validators.required, phoneNumberValidator()]],
+        ]),
 
         password: ['', [Validators.required, Validators.minLength(5)]],
 
         repeatPassword: [''],
       },
-      { validators: [CustomValidators.match('password', 'repeatPassword')] }
+      { validators: [passwordMatch('password', 'repeatPassword')] }
     );
   }
 
   public addPhoneNumber(): void {
-    this.formPhoneNumber.push(new FormControl('', [Validators.required]));
+    this.formPhoneNumber.push(
+      new FormControl('', [Validators.required, phoneNumberValidator()])
+    );
   }
 
   get email(): AbstractControl<any, any> | null {
