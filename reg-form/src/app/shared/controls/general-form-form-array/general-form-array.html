@@ -1,0 +1,19 @@
+<ng-container *ngFor="let control of formArray?.controls; let i = index">
+  <div
+    class="general-form__input-block"
+  >
+    <input
+      type="tel"
+      [formControl]="control"
+      placeholder="{{'PHONENUMBER' | transloco}}"
+      class="general-form__input-block__input"
+    />
+    <span class="general-form__border"></span>
+    <p *ngIf="control.hasError('required') && control.touched" class="general-form__validation">
+      {{'PHONEREQUIREDERROR' | transloco}}
+    </p>
+    <p *ngIf="!control.hasError('required') && control.hasError('invalidPhoneNumber') && control.touched" class="general-form__validation">
+      {{'PHONEINVALIDERROR' | transloco}}
+    </p>
+  </div>
+</ng-container>

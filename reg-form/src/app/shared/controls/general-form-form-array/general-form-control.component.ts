@@ -2,32 +2,26 @@ import { Component, forwardRef, Input } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 
 @Component({
-  selector: 'general-form-input',
-  templateUrl: './general-form-control.html',
-  styleUrl: './general-form-control.component.scss',
+  selector: 'general-form-array',
+  templateUrl: './general-form-array.html',
+  styleUrl: '../general-form-control/general-form-control.component.scss',
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => GeneralFormControl),
+      useExisting: forwardRef(() => GeneralFormArray),
       multi: true
     }
   ]
 })
-export class GeneralFormControl implements ControlValueAccessor {
-  @Input() type: string = 'text';
-  @Input() placeholder: string = '';
-  @Input() control: any;
-  @Input() requiredError: any;
-  @Input() invalidError: any;
-  
+export class GeneralFormArray implements ControlValueAccessor {
+  @Input() formArray: any;
 
   // функции для установления связи между компонентом и формой
   onChange: any = () => {};
   onTouched: any = () => {};
 
-  // методы для обновления значения в компоненте
   writeValue(value: any): void {
-    // обновление значения компонента с учётом переданного значения
+    // обновляем значение компонента на основе переданного значения
   }
 
   registerOnChange(fn: any): void {
@@ -39,5 +33,6 @@ export class GeneralFormControl implements ControlValueAccessor {
   }
 
   setDisabledState(isDisabled: boolean): void {
+    // обрабатываем состояние отключения компонента
   }
 }

@@ -68,7 +68,7 @@ export class GeneralFormComponent {
   }
 
   public onSubmit() {
-    if (this.generalForm.invalid) {
+    if (!this.generalForm.valid) {
       this.generalForm.markAllAsTouched();
     } else {
       alert(

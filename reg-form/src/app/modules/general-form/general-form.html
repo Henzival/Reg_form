@@ -1,76 +1,28 @@
 <main class="main-area">
   <div class="container">
     <div class="card">
-      <h1 class="card__title">{{ "WELCOME" | transloco }}</h1>
+      <h1 class="card__title">{{'WELCOME' | transloco}}</h1>
 
       <img src="../assets/img/angular.svg" alt="" class="card__image" />
 
       <form [formGroup]="generalForm" class="general-form">
-        <div class="general-form__input-block">
-          <input
-            type="text"
-            formControlName="username"
-            placeholder="{{'USERNAME' | transloco}}"
-            id="username"
-            class="general-form__input-block__input"
-          />
-          <span class="general-form__border"></span>
-          <p
-            *ngIf="generalForm.controls['username'].errors?.['required'] && (generalForm.controls['username'].touched)"
-            class="general-form__validation"
-          >
-            {{'USERNAMEERROR' | transloco}}
-          </p>
-        </div>
 
-        <div class="general-form__input-block">
-          <input
-            type="email"
-            formControlName="email"
-            placeholder="{{'EMAIL' | transloco}}"
-            id="email"
-            class="general-form__input-block__input"
-          />
-          <span class="general-form__border"></span>
-          <p
-            *ngIf="generalForm.controls['email'].errors?.['required'] && (generalForm.controls['email'].touched)"
-            class="general-form__validation"
-          >
-            {{'EMAILREQUIREDERROR' | transloco}}
-          </p>
-          <p
-            *ngIf="generalForm.controls['email'].errors?.['email'] && (generalForm.controls['email'].touched)"
-            class="general-form__validation"
-          >
-            {{'INVALIDEMAILERROR' | transloco}}
-          </p>
-        </div>
+        <general-form-input 
+          type="text" 
+          [placeholder]="'USERNAME' | transloco" 
+          [control]="generalForm.controls['username']" 
+          [requiredError]="'USERNAMEERROR' | transloco">
+        </general-form-input>
 
-        <div
-          class="general-form__input-block"
-          formArrayName="phoneNumber"
-          *ngFor="let number of formPhoneNumber.controls; let i = index;"
-        >
-          <input
-            type="tel"
-            [formControlName]="i"
-            placeholder="{{'PHONENUMBER' | transloco}}"
-            class="general-form__input-block__input"
-          />
-          <span class="general-form__border"></span>
-          <p
-            *ngIf="formPhoneNumber.controls[i].errors?.['required'] && (formPhoneNumber.controls[i].touched)"
-            class="general-form__validation"
-          >
-            {{'PHONEREQUIREDERROR' | transloco}}
-          </p>
-          <p
-            *ngIf="formPhoneNumber.controls[i].errors?.['invalidPhoneNumber'] && (formPhoneNumber.controls[i].touched)"
-            class="general-form__validation"
-          >
-            {{'PHONEINVALIDERROR' | transloco}}
-          </p>
-        </div>
+        <general-form-input 
+          type="email" 
+          [placeholder]="'EMAIL' | transloco" 
+          [control]="generalForm.controls['email']" 
+          [requiredError]="'EMAILREQUIREDERROR' | transloco" 
+          [invalidError]="'INVALIDEMAILERROR' | transloco">
+        </general-form-input>
+
+        <general-form-array [formArray]="formPhoneNumber"></general-form-array>
 
         <div class="general-form__phone-buttons-wrapper">
           <button
@@ -87,45 +39,20 @@
           </button>
         </div>
 
-        <div class="general-form__input-block">
-          <input
-            type="password"
-            formControlName="password"
-            placeholder="{{'PASSWORD' | transloco}}"
-            id="password"
-            class="general-form__input-block__input"
-          />
-          <span class="general-form__border"></span>
-          <p
-            *ngIf="generalForm.controls['password'].errors?.['required'] && (generalForm.controls['password'].touched)"
-            class="general-form__validation"
-          >
-            {{'PASSWORDREQUIREDERROR' | transloco}}
-          </p>
-          <p
-            *ngIf="generalForm.controls['password'].errors?.['minlength'] && (generalForm.controls['password'].touched)"
-            class="general-form__validation"
-          >
-            {{'PASSWORDLENGTHERROR' | transloco}}
-          </p>
-        </div>
-
-        <div class="general-form__input-block">
-          <input
-            type="password"
-            formControlName="repeatPassword"
-            placeholder="{{'CONFIRMPASSWORD' | transloco}}"
-            id="repeatPassword"
-            class="general-form__input-block__input"
-          />
-          <span class="general-form__border"></span>
-          <p
-            *ngIf="generalForm.controls['repeatPassword'].errors && (generalForm.controls['repeatPassword'].touched)"
-            class="general-form__validation"
-          >
-            {{'PASSWORDMISMATCHERROR' | transloco}}
-          </p>
-        </div>
+        <general-form-input 
+          type="password" 
+          [placeholder]="'PASSWORD' | transloco" 
+          [control]="generalForm.controls['password']" 
+          [requiredError]="'PASSWORDREQUIREDERROR' | transloco" 
+          [invalidError]="'PASSWORDLENGTHERROR' | transloco">
+        </general-form-input>
+        
+        <general-form-input 
+          type="password" 
+          [placeholder]="'CONFIRMPASSWORD' | transloco" 
+          [control]="generalForm.controls['repeatPassword']" 
+          [invalidError]="'PASSWORDMISMATCHERROR' | transloco">
+        </general-form-input>
 
         <button
           class="general-form__submit"
