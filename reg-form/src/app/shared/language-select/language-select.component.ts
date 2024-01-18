@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Language } from '../interfaces/languagearray-interface';
 import { Observable } from 'rxjs';
 import { GetLanguagesService } from '../services/get-languages.service';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslocoService } from '@ngneat/transloco';
 
 @Component({
   selector: 'language-select',
@@ -12,14 +12,12 @@ import { TranslateService } from '@ngx-translate/core';
 export class LanguageSelectComponent {
     langServiceObs$!: Observable<Language[]>;
     constructor(
-      private languagesService: GetLanguagesService,
-      public translate: TranslateService
+      private languagesService: GetLanguagesService, private translate: TranslocoService
     ) {
       this.langServiceObs$ = this.languagesService.getLanguages();
-      this.translate.setDefaultLang('en');
     }
   
     public selectChangeHandler(selectClick: any): void {
-      this.translate.use(selectClick.target.value);
+      this.translate.setActiveLang(selectClick.target.value);
     }
 }

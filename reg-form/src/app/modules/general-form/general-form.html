@@ -1,7 +1,7 @@
 <main class="main-area">
   <div class="container">
     <div class="card">
-      <h1 class="card__title">{{ "WELCOME" | translate }}</h1>
+      <h1 class="card__title">{{ "WELCOME" | transloco }}</h1>
 
       <img src="../assets/img/angular.svg" alt="" class="card__image" />
 
@@ -10,7 +10,7 @@
           <input
             type="text"
             formControlName="username"
-            placeholder="{{'USERNAME' | translate}}"
+            placeholder="{{'USERNAME' | transloco}}"
             id="username"
             class="general-form__input-block__input"
           />
@@ -19,7 +19,7 @@
             *ngIf="generalForm.controls['username'].errors?.['required'] && (generalForm.controls['username'].touched)"
             class="general-form__validation"
           >
-            {{'USERNAMEERROR' | translate}}
+            {{'USERNAMEERROR' | transloco}}
           </p>
         </div>
 
@@ -27,7 +27,7 @@
           <input
             type="email"
             formControlName="email"
-            placeholder="{{'EMAIL' | translate}}"
+            placeholder="{{'EMAIL' | transloco}}"
             id="email"
             class="general-form__input-block__input"
           />
@@ -36,13 +36,13 @@
             *ngIf="generalForm.controls['email'].errors?.['required'] && (generalForm.controls['email'].touched)"
             class="general-form__validation"
           >
-            {{'EMAILREQUIREDERROR' | translate}}
+            {{'EMAILREQUIREDERROR' | transloco}}
           </p>
           <p
             *ngIf="generalForm.controls['email'].errors?.['email'] && (generalForm.controls['email'].touched)"
             class="general-form__validation"
           >
-            {{'INVALIDEMAILERROR' | translate}}
+            {{'INVALIDEMAILERROR' | transloco}}
           </p>
         </div>
 
@@ -54,7 +54,7 @@
           <input
             type="tel"
             [formControlName]="i"
-            placeholder="{{'PHONENUMBER' | translate}}"
+            placeholder="{{'PHONENUMBER' | transloco}}"
             class="general-form__input-block__input"
           />
           <span class="general-form__border"></span>
@@ -62,13 +62,13 @@
             *ngIf="formPhoneNumber.controls[i].errors?.['required'] && (formPhoneNumber.controls[i].touched)"
             class="general-form__validation"
           >
-            {{'PHONEREQUIREDERROR' | translate}}
+            {{'PHONEREQUIREDERROR' | transloco}}
           </p>
           <p
             *ngIf="formPhoneNumber.controls[i].errors?.['invalidPhoneNumber'] && (formPhoneNumber.controls[i].touched)"
             class="general-form__validation"
           >
-            {{'PHONEINVALIDERROR' | translate}}
+            {{'PHONEINVALIDERROR' | transloco}}
           </p>
         </div>
 
@@ -77,13 +77,13 @@
             (click)="addPhoneNumber()"
             class="general-form__phone-buttons"
           >
-            {{'ADDFIELD' | translate}}
+            {{'ADDFIELD' | transloco}}
           </button>
           <button
             (click)="deletePhoneNumber()"
             class="general-form__phone-buttons"
           >
-            {{'DELETEFIELD' | translate}}
+            {{'DELETEFIELD' | transloco}}
           </button>
         </div>
 
@@ -91,7 +91,7 @@
           <input
             type="password"
             formControlName="password"
-            placeholder="{{'PASSWORD' | translate}}"
+            placeholder="{{'PASSWORD' | transloco}}"
             id="password"
             class="general-form__input-block__input"
           />
@@ -100,13 +100,13 @@
             *ngIf="generalForm.controls['password'].errors?.['required'] && (generalForm.controls['password'].touched)"
             class="general-form__validation"
           >
-            {{'PASSWORDREQUIREDERROR' | translate}}
+            {{'PASSWORDREQUIREDERROR' | transloco}}
           </p>
           <p
             *ngIf="generalForm.controls['password'].errors?.['minlength'] && (generalForm.controls['password'].touched)"
             class="general-form__validation"
           >
-            {{'PASSWORDLENGTHERROR' | translate}}
+            {{'PASSWORDLENGTHERROR' | transloco}}
           </p>
         </div>
 
@@ -114,7 +114,7 @@
           <input
             type="password"
             formControlName="repeatPassword"
-            placeholder="{{'CONFIRMPASSWORD' | translate}}"
+            placeholder="{{'CONFIRMPASSWORD' | transloco}}"
             id="repeatPassword"
             class="general-form__input-block__input"
           />
@@ -123,22 +123,22 @@
             *ngIf="generalForm.controls['repeatPassword'].errors && (generalForm.controls['repeatPassword'].touched)"
             class="general-form__validation"
           >
-            {{'PASSWORDMISMATCHERROR' | translate}}
+            {{'PASSWORDMISMATCHERROR' | transloco}}
           </p>
         </div>
 
         <button
           class="general-form__submit"
           (click)="onSubmit()"
-          [title]=" 'REGISTER' | translate "
+          [title]=" 'REGISTER' | transloco "
         >
-          {{'REGISTER' | translate}}
+          {{'REGISTER' | transloco}}
         </button>
       </form>
 
       <div class="general-form-textwrapper">
-        <span>{{'HAVEANACCOUNT' | translate}}</span>
-        <a href="#">{{'LOGIN' | translate}}</a>
+        <span>{{'HAVEANACCOUNT' | transloco}}</span>
+        <a href="#">{{'LOGIN' | transloco}}</a>
       </div>
     </div>
   </div>

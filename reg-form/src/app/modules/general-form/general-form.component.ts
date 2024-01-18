@@ -9,7 +9,6 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { passwordMatch } from '../../shared/validators/custom-password.validator';
-import { TranslateService, TranslateStore } from '@ngx-translate/core';
 import { phoneNumberValidator } from '../../shared/validators/custom-phone.validator';
 
 @Component({
@@ -19,15 +18,10 @@ import { phoneNumberValidator } from '../../shared/validators/custom-phone.valid
 })
 export class GeneralFormComponent {
   generalForm!: FormGroup;
-  constructor(private fb: FormBuilder, private translate: TranslateService, private u: TranslateStore) {
+  constructor(private fb: FormBuilder) {
 
     this.createForm();
 
-  }
-
-  public ngOnInit() {
-    console.log(this.translate.currentLang);
-    console.log(this.u.currentLang);
   }
   
   private createForm(): void {

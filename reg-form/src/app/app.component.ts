@@ -1,8 +1,4 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Language } from './shared/interfaces/languagearray-interface';
-import { GetLanguagesService } from './shared/services/get-languages.service';
-import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -11,5 +7,4 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class AppComponent {
   title = 'reg-form';
-  constructor() {}
 }

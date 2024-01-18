@@ -13,16 +13,8 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { Language } from './shared/interfaces/languagearray-interface';
 import { map } from 'rxjs';
-import { TranslateService } from '@ngx-translate/core';
-import { TranslateModule } from '@ngx-translate/core';
-import { TranslateSharedModule } from './shared/translate-shared-module/translate.module';
-import { TranslateLoader } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { LanguageSelectModule } from './shared/language-select/language-select.module';
-
-export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
-  return new TranslateHttpLoader(http);
-}
+import { TranslocoRootModule } from './transloco-root.module';
 
 @NgModule({
   declarations: [
@@ -38,16 +30,8 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     SignUpModule,
     FormsModule,
     RouterModule,
-    TranslateModule.forRoot({
-      defaultLanguage: 'en',
-      isolate: false,
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient],
-      },
-    }),
-    LanguageSelectModule
+    LanguageSelectModule,
+    TranslocoRootModule,
   ],
   providers: [],
   exports: [],
