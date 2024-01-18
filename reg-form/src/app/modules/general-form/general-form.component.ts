@@ -6,19 +6,30 @@ import {
   FormGroup,
   Validators,
   FormBuilder,
+  ReactiveFormsModule,
 } from '@angular/forms';
-import { CustomValidators } from '../../shared/validators/custom-password.validator';
+import { passwordMatch } from '../../shared/validators/custom-password.validator';
+import { TranslateService, TranslateStore } from '@ngx-translate/core';
+import { phoneNumberValidator } from '../../shared/validators/custom-phone.validator';
+
 @Component({
-  selector: 'general-form-ru',
-  templateUrl: './general-form-ru.html',
-  styleUrl: './general-form-ru.component.scss',
+  selector: 'general-form',
+  templateUrl: './general-form.html',
+  styleUrl: './general-form.component.scss',
 })
-export class GeneralFormRuComponent {
+export class GeneralFormComponent {
   generalForm!: FormGroup;
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private translate: TranslateService, private u: TranslateStore) {
+
     this.createForm();
+
   }
 
+  public ngOnInit() {
+    console.log(this.translate.currentLang);
+    console.log(this.u.currentLang);
+  }
+  
   private createForm(): void {
     this.generalForm = this.fb.group(
       {
@@ -26,18 +37,22 @@ export class GeneralFormRuComponent {
 
         email: ['', [Validators.required, Validators.email]],
 
-        phoneNumber: this.fb.array([['', [Validators.required]]]),
+        phoneNumber: this.fb.array([
+          ['', [Validators.required, phoneNumberValidator()]],
+        ]),
 
         password: ['', [Validators.required, Validators.minLength(5)]],
 
         repeatPassword: [''],
       },
-      { validators: [CustomValidators.match('password', 'repeatPassword')] }
+      { validators: [passwordMatch('password', 'repeatPassword')] }
     );
   }
 
   public addPhoneNumber(): void {
-    this.formPhoneNumber.push(new FormControl('', [Validators.required]));
+    this.formPhoneNumber.push(
+      new FormControl('', [Validators.required, phoneNumberValidator()])
+    );
   }
 
   get email(): AbstractControl<any, any> | null {
@@ -66,9 +81,5 @@ export class GeneralFormRuComponent {
         'SUCCESS!! :-)\n\n' + JSON.stringify(this.generalForm.value, null, 4)
       );
     }
-  }
-
-  public onReset() {
-    this.generalForm.reset();
   }
 }

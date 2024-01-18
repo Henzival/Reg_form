@@ -1,0 +1,21 @@
+{
+  "WELCOME": "Добро пожаловать",
+  "REGISTER": "Зарегистрироваться",
+  "USERNAME": "Имя пользователя",
+  "EMAIL": "Электронная почта",
+  "PHONENUMBER": "Номер телефона",
+  "ADDFIELD": "Добавить поле",
+  "DELETEFIELD": "Удалить поле",
+  "PASSWORD": "Пароль",
+  "CONFIRMPASSWORD": "Подтвердить пароль",
+  "USERNAMEERROR": "Имя пользователя обязательно.",
+  "EMAILREQUIREDERROR": "Электронная почта обязательна.",
+  "INVALIDEMAILERROR": "Неверный адрес электронной почты.",
+  "PHONEREQUIREDERROR": "Номер телефона обязателен.",
+  "PHONEINVALIDERROR": "Неверный тип номера телефона.",
+  "PASSWORDREQUIREDERROR": "Пароль обязателен.",
+  "PASSWORDLENGTHERROR": "Длина пароля должна составлять как минимум 5 символов.",
+  "PASSWORDMISMATCHERROR": "Пароли должны совпадать.",
+  "HAVEANACCOUNT": "Есть аккаунт? ",
+  "LOGIN": " Войдите в систему!"
+}

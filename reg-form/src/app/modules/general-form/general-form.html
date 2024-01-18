@@ -1,8 +1,7 @@
-@defer {
 <main class="main-area">
   <div class="container">
     <div class="card">
-      <h1 class="card__title">Добро пожаловать</h1>
+      <h1 class="card__title">{{ "WELCOME" | translate }}</h1>
 
       <img src="../assets/img/angular.svg" alt="" class="card__image" />
 
@@ -11,7 +10,7 @@
           <input
             type="text"
             formControlName="username"
-            placeholder="Имя пользователя"
+            placeholder="{{'USERNAME' | translate}}"
             id="username"
             class="general-form__input-block__input"
           />
@@ -20,7 +19,7 @@
             *ngIf="generalForm.controls['username'].errors?.['required'] && (generalForm.controls['username'].touched)"
             class="general-form__validation"
           >
-            Имя пользователя обязательно.
+            {{'USERNAMEERROR' | translate}}
           </p>
         </div>
 
@@ -28,7 +27,7 @@
           <input
             type="email"
             formControlName="email"
-            placeholder="Электронная почта"
+            placeholder="{{'EMAIL' | translate}}"
             id="email"
             class="general-form__input-block__input"
           />
@@ -37,13 +36,13 @@
             *ngIf="generalForm.controls['email'].errors?.['required'] && (generalForm.controls['email'].touched)"
             class="general-form__validation"
           >
-            Электронная почта обязательна.
+            {{'EMAILREQUIREDERROR' | translate}}
           </p>
           <p
             *ngIf="generalForm.controls['email'].errors?.['email'] && (generalForm.controls['email'].touched)"
             class="general-form__validation"
           >
-            Неверный адрес электронной почты.
+            {{'INVALIDEMAILERROR' | translate}}
           </p>
         </div>
 
@@ -55,7 +54,7 @@
           <input
             type="tel"
             [formControlName]="i"
-            placeholder="Номер телефона"
+            placeholder="{{'PHONENUMBER' | translate}}"
             class="general-form__input-block__input"
           />
           <span class="general-form__border"></span>
@@ -63,7 +62,13 @@
             *ngIf="formPhoneNumber.controls[i].errors?.['required'] && (formPhoneNumber.controls[i].touched)"
             class="general-form__validation"
           >
-            Номер телефона обязателен.
+            {{'PHONEREQUIREDERROR' | translate}}
+          </p>
+          <p
+            *ngIf="formPhoneNumber.controls[i].errors?.['invalidPhoneNumber'] && (formPhoneNumber.controls[i].touched)"
+            class="general-form__validation"
+          >
+            {{'PHONEINVALIDERROR' | translate}}
           </p>
         </div>
 
@@ -72,13 +77,13 @@
             (click)="addPhoneNumber()"
             class="general-form__phone-buttons"
           >
-            Добавить поле
+            {{'ADDFIELD' | translate}}
           </button>
           <button
             (click)="deletePhoneNumber()"
             class="general-form__phone-buttons"
           >
-            Убрать поле
+            {{'DELETEFIELD' | translate}}
           </button>
         </div>
 
@@ -86,7 +91,7 @@
           <input
             type="password"
             formControlName="password"
-            placeholder="Пароль"
+            placeholder="{{'PASSWORD' | translate}}"
             id="password"
             class="general-form__input-block__input"
           />
@@ -95,13 +100,13 @@
             *ngIf="generalForm.controls['password'].errors?.['required'] && (generalForm.controls['password'].touched)"
             class="general-form__validation"
           >
-            Пароль обязателен.
+            {{'PASSWORDREQUIREDERROR' | translate}}
           </p>
           <p
             *ngIf="generalForm.controls['password'].errors?.['minlength'] && (generalForm.controls['password'].touched)"
             class="general-form__validation"
           >
-            Длина пароля должна составлять как минимум 5 символов.
+            {{'PASSWORDLENGTHERROR' | translate}}
           </p>
         </div>
 
@@ -109,7 +114,7 @@
           <input
             type="password"
             formControlName="repeatPassword"
-            placeholder="Подтвердить пароль"
+            placeholder="{{'CONFIRMPASSWORD' | translate}}"
             id="repeatPassword"
             class="general-form__input-block__input"
           />
@@ -118,20 +123,23 @@
             *ngIf="generalForm.controls['repeatPassword'].errors && (generalForm.controls['repeatPassword'].touched)"
             class="general-form__validation"
           >
-            Пароли должны совпадать.
+            {{'PASSWORDMISMATCHERROR' | translate}}
           </p>
         </div>
 
-        <button class="general-form__submit" (click)="onSubmit()">
-          Зарегистрироваться
+        <button
+          class="general-form__submit"
+          (click)="onSubmit()"
+          [title]=" 'REGISTER' | translate "
+        >
+          {{'REGISTER' | translate}}
         </button>
       </form>
 
       <div class="general-form-textwrapper">
-        <span>Есть аккаунт? </span>
-        <a href="#"> Войдите в систему!</a>
+        <span>{{'HAVEANACCOUNT' | translate}}</span>
+        <a href="#">{{'LOGIN' | translate}}</a>
       </div>
     </div>
   </div>
 </main>
-}

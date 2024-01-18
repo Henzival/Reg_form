@@ -1,0 +1,21 @@
+{
+  "WELCOME": "Welcome",
+  "REGISTER": "Register",
+  "USERNAME": "Username",
+  "EMAIL": "Email",
+  "PHONENUMBER": "Phone number",
+  "ADDFIELD": "Add field",
+  "DELETEFIELD": "Delete field",
+  "PASSWORD": "Password",
+  "CONFIRMPASSWORD": "Confirm password",
+  "USERNAMEERROR": "Username is required.",
+  "EMAILREQUIREDERROR": "Email is required.",
+  "INVALIDEMAILERROR": "Invalid email.",
+  "PHONEREQUIREDERROR": "Phone number is required.",
+  "PHONEINVALIDERROR": "Invalid phone number.",
+  "PASSWORDREQUIREDERROR": "Password is required.",
+  "PASSWORDLENGTHERROR": "Password length has to be at least 5 characters long.",
+  "PASSWORDMISMATCHERROR": "The passwords must match.",
+  "HAVEANACCOUNT": "Already have an account? ",
+  "LOGIN": " Log in!"
+}
