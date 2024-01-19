@@ -18,6 +18,8 @@ import { phoneNumberValidator } from '../../shared/validators/custom-phone.valid
 })
 export class GeneralFormComponent {
   generalForm!: FormGroup;
+  isPassHidden: boolean = true;
+  isRepeatHidden: boolean = true;
   constructor(private fb: FormBuilder) {
 
     this.createForm();
@@ -75,5 +77,9 @@ export class GeneralFormComponent {
         'SUCCESS!! :-)\n\n' + JSON.stringify(this.generalForm.value, null, 4)
       );
     }
+  }
+
+  public hidePassword() {
+    this.isPassHidden = !this.isPassHidden;
   }
 }

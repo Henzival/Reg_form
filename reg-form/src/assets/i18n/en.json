@@ -17,5 +17,6 @@
   "PASSWORDLENGTHERROR": "Password length has to be at least 5 characters long.",
   "PASSWORDMISMATCHERROR": "The passwords must match.",
   "HAVEANACCOUNT": "Already have an account? ",
-  "LOGIN": " Log in!"
+  "LOGIN": " Log in!",
+  "REVEAL": "Reveal passwords"
 }

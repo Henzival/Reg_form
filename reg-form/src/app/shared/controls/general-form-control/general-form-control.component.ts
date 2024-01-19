@@ -41,13 +41,4 @@ export class GeneralFormControl implements ControlValueAccessor {
 
   setDisabledState(isDisabled: boolean): void {
   }
-
-  showError(errorKey: string, control: any): boolean {
-    if (errorKey === 'required') {
-      return control.hasError('required') && control.touched && !control.hasError('invalidPhoneNumber');
-    } else if (errorKey === 'invalidPhoneNumber') {
-      return !control.hasError('required') && control.hasError('invalidPhoneNumber') && control.touched;
-    }
-    return false;
-  }
 }

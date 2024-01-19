@@ -70,7 +70,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  &__show-password{
+    cursor: pointer;
+    background-color: #21d4fd;
+    margin-top: -20px;
+    height: 20px;
+    border-radius: 5px;
+    transition: 0.4s;
+    &:hover {
+      background-color: #b721ff;
+    }
+  }
   &__input-block {
     width: 300px;
     margin-bottom: 37px;

@@ -47,19 +47,20 @@
         </div>
 
         <general-form-input 
-          type="password" 
+          type="{{isPassHidden ? 'password' : 'text'}}"
           [placeholder]="'PASSWORD' | transloco" 
           [control]="generalForm.controls['password']" 
           [requiredError]="'PASSWORDREQUIREDERROR' | transloco" 
           [invalidError]="'PASSWORDLENGTHERROR' | transloco">
         </general-form-input>
-        
+
         <general-form-input 
-          type="password" 
+          type="{{isPassHidden ? 'password' : 'text'}}" 
           [placeholder]="'CONFIRMPASSWORD' | transloco" 
           [control]="generalForm.controls['repeatPassword']" 
           [invalidError]="'PASSWORDMISMATCHERROR' | transloco">
         </general-form-input>
+        <button (click)="hidePassword()" class="general-form__show-password">{{'REVEAL' | transloco}}</button>
 
         <button
           class="general-form__submit"
