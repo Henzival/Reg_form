@@ -9,9 +9,9 @@ import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => GeneralFormControl),
-      multi: true
-    }
-  ]
+      multi: true,
+    },
+  ],
 })
 export class GeneralFormControl implements ControlValueAccessor {
   @Input() control: any;
@@ -20,16 +20,12 @@ export class GeneralFormControl implements ControlValueAccessor {
   @Input() type: string = 'text';
   @Input() requiredError: any;
   @Input() invalidError: any;
-  
 
   // функции для установления связи между компонентом и формой
   onChange: any = () => {};
   onTouched: any = () => {};
 
-  // методы для обновления значения в компоненте
-  writeValue(value: any): void {
-    // обновление значения компонента с учётом переданного значения
-  }
+  writeValue(value: any): void {}
 
   registerOnChange(fn: any): void {
     this.onChange = fn;
@@ -39,6 +35,5 @@ export class GeneralFormControl implements ControlValueAccessor {
     this.onTouched = fn;
   }
 
-  setDisabledState(isDisabled: boolean): void {
-  }
+  setDisabledState(isDisabled: boolean): void {}
 }

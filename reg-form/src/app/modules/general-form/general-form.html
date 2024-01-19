@@ -6,29 +6,31 @@
       <img src="../assets/img/angular.svg" alt="" class="card__image" />
 
       <form [formGroup]="generalForm" class="general-form">
-
-        <general-form-input 
-          type="text" 
-          [placeholder]="'USERNAME' | transloco" 
-          [control]="generalForm.controls['username']" 
-          [requiredError]="'USERNAMEERROR' | transloco">
+        <general-form-input
+          type="text"
+          [placeholder]="'USERNAME' | transloco"
+          [control]="generalForm.controls['username']"
+          [requiredError]="'USERNAMEERROR' | transloco"
+        >
         </general-form-input>
 
-        <general-form-input 
-          type="email" 
-          [placeholder]="'EMAIL' | transloco" 
-          [control]="generalForm.controls['email']" 
-          [requiredError]="'EMAILREQUIREDERROR' | transloco" 
-          [invalidError]="'INVALIDEMAILERROR' | transloco">
+        <general-form-input
+          type="email"
+          [placeholder]="'EMAIL' | transloco"
+          [control]="generalForm.controls['email']"
+          [requiredError]="'EMAILREQUIREDERROR' | transloco"
+          [invalidError]="'INVALIDEMAILERROR' | transloco"
+        >
         </general-form-input>
 
-        <general-form-input 
+        <general-form-input
           *ngFor="let control of formPhoneNumber.controls; let i = index"
-          type="tel" 
-          [placeholder]="'PHONENUMBER' | transloco" 
+          type="tel"
+          [placeholder]="'PHONENUMBER' | transloco"
           [control]="formPhoneNumber.at(i)"
-          [requiredError]="'PHONEREQUIREDERROR' | transloco" 
-          [invalidError]="'PHONEINVALIDERROR' | transloco">
+          [requiredError]="'PHONEREQUIREDERROR' | transloco"
+          [invalidError]="'PHONEINVALIDERROR' | transloco"
+        >
         </general-form-input>
 
         <div class="general-form__phone-buttons-wrapper">
@@ -46,21 +48,25 @@
           </button>
         </div>
 
-        <general-form-input 
+        <general-form-input
           type="{{isPassHidden ? 'password' : 'text'}}"
-          [placeholder]="'PASSWORD' | transloco" 
-          [control]="generalForm.controls['password']" 
-          [requiredError]="'PASSWORDREQUIREDERROR' | transloco" 
-          [invalidError]="'PASSWORDLENGTHERROR' | transloco">
+          [placeholder]="'PASSWORD' | transloco"
+          [control]="generalForm.controls['password']"
+          [requiredError]="'PASSWORDREQUIREDERROR' | transloco"
+          [invalidError]="'PASSWORDLENGTHERROR' | transloco"
+        >
         </general-form-input>
 
-        <general-form-input 
-          type="{{isPassHidden ? 'password' : 'text'}}" 
-          [placeholder]="'CONFIRMPASSWORD' | transloco" 
-          [control]="generalForm.controls['repeatPassword']" 
-          [invalidError]="'PASSWORDMISMATCHERROR' | transloco">
+        <general-form-input
+          type="{{isPassHidden ? 'password' : 'text'}}"
+          [placeholder]="'CONFIRMPASSWORD' | transloco"
+          [control]="generalForm.controls['repeatPassword']"
+          [invalidError]="'PASSWORDMISMATCHERROR' | transloco"
+        >
         </general-form-input>
-        <button (click)="hidePassword()" class="general-form__show-password">{{'REVEAL' | transloco}}</button>
+        <button (click)="hidePassword()" class="general-form__show-password">
+          {{'REVEAL' | transloco}}
+        </button>
 
         <button
           class="general-form__submit"

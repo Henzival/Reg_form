@@ -1,19 +1,22 @@
 <div class="general-form__input-block">
-    <input
+  <input
     [type]="type"
     [placeholder]="placeholder"
     [formControl]="control"
     class="general-form__input-block__input"
   />
-      <span class="general-form__border"></span>
-      <ng-container *ngIf="control.invalid && control.touched">
-        <ng-container [ngSwitch]="true">
-          <p *ngSwitchCase="control.hasError('required')" class="general-form__validation">
-            {{ requiredError }}
-          </p>
-          <p *ngSwitchDefault class="general-form__validation">
-            {{ invalidError }}
-          </p>
-        </ng-container>
-      </ng-container>
+  <span class="general-form__border"></span>
+  <ng-container *ngIf="control.invalid && control.touched">
+    <ng-container [ngSwitch]="true">
+      <p
+        *ngSwitchCase="control.hasError('required')"
+        class="general-form__validation"
+      >
+        {{ requiredError }}
+      </p>
+      <p *ngSwitchDefault class="general-form__validation">
+        {{ invalidError }}
+      </p>
+    </ng-container>
+  </ng-container>
 </div>

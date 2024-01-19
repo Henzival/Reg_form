@@ -19,7 +19,7 @@ import { phoneNumberValidator } from '../../shared/validators/custom-phone.valid
 export class GeneralFormComponent {
   generalForm!: FormGroup;
   isPassHidden: boolean = true;
-  isRepeatHidden: boolean = true;
+  
   constructor(private fb: FormBuilder) {
 
     this.createForm();

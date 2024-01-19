@@ -10,14 +10,15 @@ import { TranslocoService } from '@ngneat/transloco';
   styleUrl: './language-select.component.scss',
 })
 export class LanguageSelectComponent {
-    langServiceObs$!: Observable<Language[]>;
-    constructor(
-      private languagesService: GetLanguagesService, private translate: TranslocoService
-    ) {
-      this.langServiceObs$ = this.languagesService.getLanguages();
-    }
-  
-    public selectChangeHandler(selectClick: any): void {
-      this.translate.setActiveLang(selectClick.target.value);
-    }
+  langServiceObs$!: Observable<Language[]>;
+  constructor(
+    private languagesService: GetLanguagesService,
+    private translate: TranslocoService
+  ) {
+    this.langServiceObs$ = this.languagesService.getLanguages();
+  }
+
+  public selectChangeHandler(selectClick: any): void {
+    this.translate.setActiveLang(selectClick.target.value);
+  }
 }

@@ -8,15 +8,11 @@ import { GeneralFormModule } from './modules/general-form/general-form.module';
 import { SignUpModule } from './modules/sign-up/sign-up.module';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { Language } from './shared/interfaces/languagearray-interface';
-import { map } from 'rxjs';
 import { LanguageSelectModule } from './shared/language-select/language-select.module';
 import { TranslocoRootModule } from './transloco-root.module';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -31,6 +27,6 @@ import { TranslocoRootModule } from './transloco-root.module';
   ],
   providers: [],
   exports: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -4,9 +4,7 @@ import { LanguageSelectComponent } from './language-select.component';
 
 @NgModule({
   declarations: [LanguageSelectComponent],
-  imports: [
-    CommonModule,
-  ],
+  imports: [CommonModule],
   exports: [LanguageSelectComponent],
   providers: [],
 })

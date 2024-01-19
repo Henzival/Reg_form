@@ -15,23 +15,6 @@
   font-weight: 300;
 }
 
-@font-face {
-  font-family: "Poppins Bold";
-  src: url("../../../../assets/fonts/Poppins-Bold.eot");
-  src: url("../../../../assets/fonts/Poppins-Bold.eot?#iefix")
-      format("embedded-opentype"),
-    url("../../../../assets/fonts/Poppins-Bold.woff") format("woff"),
-    url("../../../../assets/fonts/Poppins-Bold.ttf") format("truetype");
-  font-style: normal;
-  font-weight: normal;
-  font-display: auto;
-}
-
-@mixin title {
-  font-family: "Poppins Bold", sans-serif;
-  font-weight: 700;
-}
-
 .general-form {
   &__input-block {
     width: 300px;

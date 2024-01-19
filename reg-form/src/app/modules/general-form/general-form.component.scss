@@ -70,7 +70,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  &__show-password{
+
+  &__show-password {
     cursor: pointer;
     background-color: #21d4fd;
     margin-top: -20px;
@@ -80,32 +81,6 @@
     &:hover {
       background-color: #b721ff;
     }
-  }
-  &__input-block {
-    width: 300px;
-    margin-bottom: 37px;
-
-    &__input {
-      border: 0;
-      width: 300px;
-      @include reg;
-      &:focus {
-        outline: none;
-      }
-      &:focus + .general-form__border {
-        display: block;
-        background: -webkit-linear-gradient(left, #21d4fd, #b721ff);
-        height: 2px;
-        width: 300px;
-      }
-    }
-  }
-
-  &__border {
-    display: block;
-    background: #f1f1f1;
-    height: 2px;
-    width: 300px;
   }
 
   &__submit {
@@ -170,10 +145,5 @@
     &:hover {
       background-color: #b721ff;
     }
-  }
-
-  &__validation {
-    @include reg;
-    margin-bottom: 0;
   }
 }
