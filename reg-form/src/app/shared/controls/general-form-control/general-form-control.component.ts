@@ -14,9 +14,10 @@ import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
   ]
 })
 export class GeneralFormControl implements ControlValueAccessor {
-  @Input() type: string = 'text';
-  @Input() placeholder: string = '';
   @Input() control: any;
+  @Input() formArray: any;
+  @Input() placeholder: string = '';
+  @Input() type: string = 'text';
   @Input() requiredError: any;
   @Input() invalidError: any;
   
@@ -39,5 +40,14 @@ export class GeneralFormControl implements ControlValueAccessor {
   }
 
   setDisabledState(isDisabled: boolean): void {
+  }
+
+  showError(errorKey: string, control: any): boolean {
+    if (errorKey === 'required') {
+      return control.hasError('required') && control.touched && !control.hasError('invalidPhoneNumber');
+    } else if (errorKey === 'invalidPhoneNumber') {
+      return !control.hasError('required') && control.hasError('invalidPhoneNumber') && control.touched;
+    }
+    return false;
   }
 }

@@ -4,15 +4,16 @@
     [placeholder]="placeholder"
     [formControl]="control"
     class="general-form__input-block__input"
-    (blur)="onTouched()"
   />
       <span class="general-form__border"></span>
-      <ng-container *ngFor="let error of control.errors | keyvalue">
-      <p *ngIf="control.hasError('required') && control.touched" class="general-form__validation">
-        {{ requiredError }}
-      </p>
-      <p *ngIf="control.hasError(error.key) && !control.hasError('required') && control.touched" class="general-form__validation">
-        {{ invalidError }}
-      </p>
-    </ng-container>
+      <ng-container *ngIf="control.invalid && control.touched">
+        <ng-container [ngSwitch]="true">
+          <p *ngSwitchCase="control.hasError('required')" class="general-form__validation">
+            {{ requiredError }}
+          </p>
+          <p *ngSwitchDefault class="general-form__validation">
+            {{ invalidError }}
+          </p>
+        </ng-container>
+      </ng-container>
 </div>

@@ -22,7 +22,14 @@
           [invalidError]="'INVALIDEMAILERROR' | transloco">
         </general-form-input>
 
-        <general-form-array [formArray]="formPhoneNumber"></general-form-array>
+        <general-form-input 
+          *ngFor="let control of formPhoneNumber.controls; let i = index"
+          type="tel" 
+          [placeholder]="'PHONENUMBER' | transloco" 
+          [control]="formPhoneNumber.at(i)"
+          [requiredError]="'PHONEREQUIREDERROR' | transloco" 
+          [invalidError]="'PHONEINVALIDERROR' | transloco">
+        </general-form-input>
 
         <div class="general-form__phone-buttons-wrapper">
           <button
